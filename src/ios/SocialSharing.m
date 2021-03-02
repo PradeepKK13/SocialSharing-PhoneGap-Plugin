@@ -635,13 +635,13 @@ static NSString *const kShareOptionIPadCoordinates = @"iPadCoordinates";
   // If it's not, this method will ask permission to the user on iOS9 for opening the app,
   // which is of course better than WhatsApp sharing not working at all because you forgot to whitelist it.
   // Tradeoff: on iOS9 this method will always return true, so make sure to whitelist it and call canShareVia('whatsapp'..)
-  if (!IsAtLeastiOSVersion(@"9.0")) {
+  ///if (!IsAtLeastiOSVersion(@"9.0")) {
     if (![self canShareViaWhatsApp]) {
       CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"not available"];
       [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
       return;
     }
-  }
+  //}
 
   NSString *message   = [command.arguments objectAtIndex:0];
   // subject is not supported by the SLComposeViewController
